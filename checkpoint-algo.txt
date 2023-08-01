@@ -1,0 +1,30 @@
+def count_sentence_properties(sentence):
+    # Initialize counters
+    length_counter = 0
+    word_counter = 0
+    vowel_counter = 0
+
+    # Loop through each character in the sentence
+    for char in sentence:
+        # Increment the length counter for each character
+        length_counter += 1
+
+        # Check if the character is a vowel (assuming lowercase)
+        if char in 'aeiou':
+            vowel_counter += 1
+
+        # Check if the character is a space, which indicates the end of a word
+        if char == ' ':
+            word_counter += 1
+
+    # Increment word_counter by 1 to account for the last word after the point
+    word_counter += 1
+
+    # Print the results
+    print("Length of the sentence:", length_counter)
+    print("Number of words in the sentence:", word_counter)
+    print("Number of vowels in the sentence:", vowel_counter)
+
+# Test the function with an example sentence
+example_sentence = "The quick brown fox jumps over the lazy dog."
+count_sentence_properties(example_sentence)
