@@ -1,0 +1,40 @@
+// Function to calculate the dot product of two vectors
+function dot_product(v1, v2) {
+  if (v1.length !== v2.length) {
+    throw new Error("Vectors must be of the same length.");
+  }
+
+  let ps = 0;
+  for (let i = 0; i < v1.length; i++) {
+    ps += v1[i] * v2[i];
+  }
+
+  return ps;
+}
+
+// Function to check if two vectors are orthogonal
+function are_vectors_orthogonal(v1, v2) {
+  const ps = dot_product(v1, v2);
+  return ps === 0;
+}
+
+// Function to check orthogonality for n pairs of vectors
+function check_orthogonality_for_n_pairs(vectors_list) {
+  for (const [v1, v2] of vectors_list) {
+    const orthogonal = are_vectors_orthogonal(v1, v2);
+    if (orthogonal) {
+      console.log(`Vectors [${v1}] and [${v2}] are orthogonal.`);
+    } else {
+      console.log(`Vectors [${v1}] and [${v2}] are not orthogonal.`);
+    }
+  }
+}
+
+// Example usage:
+const vectors_list = [
+  [[1, 0, -1], [0, 2, 0]],
+  [[3, -2], [2, 3]],
+  [[1, 1, 1], [1, -1, 1]],
+];
+
+check_orthogonality_for_n_pairs(vectors_list);
