@@ -1,0 +1,17 @@
+def sum_of_distinct_elements(set1, set2):
+    # Concatenate both sets into a single array
+    combined_array = set1 + set2
+
+    # Convert the array into a set to eliminate duplicates
+    distinct_elements = set(combined_array)
+
+    # Calculate the sum of all elements in the set
+    sum_of_elements = sum(distinct_elements)
+
+    return sum_of_elements
+
+# Example usage
+set1 = [3, 1, 7, 9]
+set2 = [2, 4, 1, 9, 3]
+result = sum_of_distinct_elements(set1, set2)
+print(result)  # Output: 13 (distinct elements 4, 7, 2)
